@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+//import Alamofire 
 
 class ViewController: UIViewController, UITableViewDataSource
 {
@@ -64,7 +65,7 @@ class ViewController: UIViewController, UITableViewDataSource
     {
         let todo = ToDos[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = todo.value(forKeyPath: "task") as? String
+    //    cell.textLabel?.text = todo.value(forKeyPath: "task") as? String
         return cell
     }
     

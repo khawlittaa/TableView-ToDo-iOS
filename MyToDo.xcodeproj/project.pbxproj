@@ -13,6 +13,8 @@
 		843FBBC021A8533100F7FC10 /* MyToDo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 843FBBBE21A8533100F7FC10 /* MyToDo.xcdatamodeld */; };
 		843FBBC221A8533100F7FC10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 843FBBC121A8533100F7FC10 /* Assets.xcassets */; };
 		843FBBC521A8533100F7FC10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 843FBBC321A8533100F7FC10 /* LaunchScreen.storyboard */; };
+		84EBD8B621AC866000665022 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBD8B521AC866000665022 /* TaskCell.swift */; };
+		84EBD8BA21ACA5E700665022 /* Taskmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBD8B921ACA5E700665022 /* Taskmodel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		843FBBC121A8533100F7FC10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		843FBBC421A8533100F7FC10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		843FBBC621A8533100F7FC10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84EBD8B521AC866000665022 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		84EBD8B921ACA5E700665022 /* Taskmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taskmodel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				843FBBC321A8533100F7FC10 /* LaunchScreen.storyboard */,
 				843FBBC621A8533100F7FC10 /* Info.plist */,
 				843FBBBE21A8533100F7FC10 /* MyToDo.xcdatamodeld */,
+				84EBD8B521AC866000665022 /* TaskCell.swift */,
+				84EBD8B921ACA5E700665022 /* Taskmodel.swift */,
 			);
 			path = MyToDo;
 			sourceTree = "<group>";
@@ -138,7 +144,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84EBD8B621AC866000665022 /* TaskCell.swift in Sources */,
 				843FBBBA21A8533100F7FC10 /* ViewController.swift in Sources */,
+				84EBD8BA21ACA5E700665022 /* Taskmodel.swift in Sources */,
 				843FBBB821A8533100F7FC10 /* AppDelegate.swift in Sources */,
 				843FBBC021A8533100F7FC10 /* MyToDo.xcdatamodeld in Sources */,
 			);
