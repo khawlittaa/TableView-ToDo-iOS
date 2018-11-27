@@ -64,9 +64,11 @@ class ViewController: UIViewController, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let todo = ToDos[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-    //    cell.textLabel?.text = todo.value(forKeyPath: "task") as? String
-        return cell
+        let task = Taskmodel(task: todo.value(forKeyPath: "task") as! String, date:  Date.init(), time: 30)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? TaskCell
+         //cell..text = todo.value(forKeyPath: "task") as? String
+        cell?.updateUI(task: task)
+        return cell!
     }
     
     // showing the pop up to add a new task to my todos
@@ -83,15 +85,20 @@ class ViewController: UIViewController, UITableViewDataSource
             {
                 return
             }
+            guard let textFiel1 = alert.textFields?.last,
+                let TimeNeeded : Int = Int(textFiel1.text!) else
+            {
+                return
+            }
             // saving my task in core data to persist in momory
-            self.save(task: ToDoToSave)
+            self.save(task: ToDoToSave,date: Date.init(),time: TimeNeeded)
             self.ToDosTableView.reloadData()
         }
         
         let cancelAction = UIAlertAction(title: "Cancel",style: .cancel)
         
         alert.addTextField()
-        
+       alert.addTextField()
         alert.addAction(saveAction)
         alert.addAction(cancelAction)
         
@@ -99,7 +106,7 @@ class ViewController: UIViewController, UITableViewDataSource
     }
     
     // methode save saves my task in core data model
-    func save(task: String) {
+    func save(task: String, date:Date , time:Int) {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else
         {
@@ -116,6 +123,8 @@ class ViewController: UIViewController, UITableViewDataSource
         
         /* saving my data in core data entity  using KVC key (same naming as in core data entity model)*/
         todo.setValue(task, forKeyPath: "task")
+        todo.setValue(time, forKeyPath: "time")
+        todo.setValue(date, forKeyPath: "date")
         
         // comiting my changes to core ata mdel & managing exceptions
         do

@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="94" id="i6u-uT-1nS">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="94" id="i6u-uT-1nS" customClass="TaskCell" customModule="MyToDo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i6u-uT-1nS" id="AT3-iP-eSA">
@@ -76,6 +76,11 @@
                                                 <constraint firstItem="w6A-5m-LYU" firstAttribute="top" secondItem="AT3-iP-eSA" secondAttribute="top" id="kqP-tU-umC"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="datelbl" destination="tlO-jU-aJC" id="I8Z-8z-e2R"/>
+                                            <outlet property="tasklbl" destination="CIU-hM-sQp" id="WIV-6p-TuS"/>
+                                            <outlet property="timelbl" destination="V2r-JE-gEM" id="iOm-H9-ISU"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

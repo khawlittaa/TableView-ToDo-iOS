@@ -24,7 +24,7 @@ class Taskmodel
     {
         return _task
     }
-    var Recipe :Int
+    var Time :Int
     {
         return _time
     }
