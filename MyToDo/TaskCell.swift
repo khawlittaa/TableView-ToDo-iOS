@@ -28,7 +28,7 @@ class TaskCell: UITableViewCell {
     func updateUI(task:Taskmodel)
     {
         tasklbl.text = task.Task
-     //   datelbl.text = String(task.TaskDate)
+        datelbl.text = task.TaskDate.description
         timelbl.text = String(task.Time)
         
     }

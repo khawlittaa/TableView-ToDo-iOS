@@ -64,7 +64,7 @@ class ViewController: UIViewController, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let todo = ToDos[indexPath.row]
-        let task = Taskmodel(task: todo.value(forKeyPath: "task") as! String, date:  Date.init(), time: 30)
+        let task = Taskmodel(task: todo.value(forKeyPath: "task") as! String, date: todo.value(forKeyPath: "date") as! Date , time:  todo.value(forKeyPath: "time") as! Int)
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? TaskCell
          //cell..text = todo.value(forKeyPath: "task") as? String
         cell?.updateUI(task: task)
@@ -74,7 +74,7 @@ class ViewController: UIViewController, UITableViewDataSource
     // showing the pop up to add a new task to my todos
     @IBAction func AddNewToDoPressed(_ sender: Any)
     {
-        let alert = UIAlertController(title: "New ToDo", message: "Add a new ToDo", preferredStyle: .alert)
+        let alert = UIAlertController(title: "New ToDo", message: "Add a new ToDo & time needed", preferredStyle: .alert)
         
         let saveAction = UIAlertAction(title: "Save", style: .default)
         {
@@ -85,6 +85,7 @@ class ViewController: UIViewController, UITableViewDataSource
             {
                 return
             }
+            
             guard let textFiel1 = alert.textFields?.last,
                 let TimeNeeded : Int = Int(textFiel1.text!) else
             {
@@ -98,7 +99,7 @@ class ViewController: UIViewController, UITableViewDataSource
         let cancelAction = UIAlertAction(title: "Cancel",style: .cancel)
         
         alert.addTextField()
-       alert.addTextField()
+        alert.addTextField()
         alert.addAction(saveAction)
         alert.addAction(cancelAction)
         
