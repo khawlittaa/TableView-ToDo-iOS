@@ -15,15 +15,23 @@ class ViewController: UIViewController, UITableViewDataSource
     // my list of todos using core data
     var ToDos: [NSManagedObject] = []
     
+     var checked: [Bool]!
+    
     @IBOutlet weak var ToDosTableView: UITableView!
     
 
     override func viewDidLoad()
     {
+        checked = [Bool](repeating: false, count: ToDos.count)
         title = "My Todos"
         super.viewDidLoad()
+        // enabeling tableV editing
+        self.ToDosTableView.isEditing = true
+        
         
     }
+    
+    
     
     // fetching % desplaying data  saved in my  core data model when the view appears to the user 
     override func viewWillAppear(_ animated: Bool)
@@ -65,8 +73,17 @@ class ViewController: UIViewController, UITableViewDataSource
         let todo = ToDos[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = todo.value(forKeyPath: "task") as? String
+      
         return cell
     }
+  
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)
+    {
+        let movedObject = self.ToDos[sourceIndexPath.row]
+        ToDos.remove(at: sourceIndexPath.row)
+        ToDos.insert(movedObject, at: destinationIndexPath.row)
+    }
+    
     
     // showing the pop up to add a new task to my todos
     @IBAction func AddNewToDoPressed(_ sender: Any)
