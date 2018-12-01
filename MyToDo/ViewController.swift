@@ -18,6 +18,7 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
     @IBOutlet weak var ToDosTableView: UITableView!
     
     @IBOutlet weak var addbtn: UIBarButtonItem!
+    @IBOutlet weak var doneBtn: UIBarButtonItem!
 
     override func viewDidLoad()
     {
@@ -61,6 +62,7 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
         return ToDos.count
         
     }
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
@@ -74,16 +76,25 @@ class ViewController: UIViewController, UITableViewDataSource , UITableViewDeleg
     {
         // enableling editting on my table view 
           ToDosTableView.isEditing = true
+         doneBtn.isEnabled = true
         // ToDosTableView.isEditing = false
     }
-
+    
+    
+    @IBAction func donePressed(_ sender: Any)
+    {
+         ToDosTableView.isEditing = false
+        doneBtn.isEnabled = false
+    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
     {
+       
         if editingStyle == .delete
         {
             ToDos.remove(at: indexPath.row)
-           ToDosTableView.deleteRows(at: [indexPath], with: .fade)
-            ToDosTableView.isEditing = false
+            ToDosTableView.deleteRows(at: [indexPath], with: .fade)
+           
         }
        
     }

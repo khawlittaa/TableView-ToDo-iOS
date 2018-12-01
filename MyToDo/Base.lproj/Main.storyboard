@@ -64,15 +64,23 @@
                                 <action selector="EditPressed:" destination="BYZ-38-t0r" id="5z3-ee-dgK"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xhE-DJ-8Y9">
-                            <connections>
-                                <action selector="AddNewToDoPressed:" destination="BYZ-38-t0r" id="JXQ-BB-5CR"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="xhE-DJ-8Y9">
+                                <connections>
+                                    <action selector="AddNewToDoPressed:" destination="BYZ-38-t0r" id="JXQ-BB-5CR"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem enabled="NO" systemItem="done" id="xeP-fe-nWX">
+                                <connections>
+                                    <action selector="donePressed:" destination="BYZ-38-t0r" id="b7c-gv-5NK"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="ToDosTableView" destination="5JH-7Q-bTH" id="HOA-wp-vXf"/>
                         <outlet property="addbtn" destination="xhE-DJ-8Y9" id="1nz-gm-fQu"/>
+                        <outlet property="doneBtn" destination="xeP-fe-nWX" id="YQy-3m-wIq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
