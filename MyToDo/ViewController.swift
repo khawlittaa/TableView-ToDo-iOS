@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, UITableViewDataSource
+class ViewController: UIViewController, UITableViewDataSource , UITableViewDelegate
 {
  
     // my list of todos using core data
@@ -17,11 +17,13 @@ class ViewController: UIViewController, UITableViewDataSource
     
     @IBOutlet weak var ToDosTableView: UITableView!
     
+    @IBOutlet weak var addbtn: UIBarButtonItem!
 
     override func viewDidLoad()
     {
         title = "My Todos"
         super.viewDidLoad()
+        
         
     }
     
@@ -66,6 +68,24 @@ class ViewController: UIViewController, UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = todo.value(forKeyPath: "task") as? String
         return cell
+    }
+    
+    @IBAction func EditPressed(_ sender: Any)
+    {
+        // enableling editting on my table view 
+          ToDosTableView.isEditing = true
+        // ToDosTableView.isEditing = false
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
+    {
+        if editingStyle == .delete
+        {
+            ToDos.remove(at: indexPath.row)
+           ToDosTableView.deleteRows(at: [indexPath], with: .fade)
+            ToDosTableView.isEditing = false
+        }
+       
     }
     
     // showing the pop up to add a new task to my todos

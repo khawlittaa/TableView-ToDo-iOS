@@ -59,6 +59,11 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="pqS-5w-w3q">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="5uU-fs-h6I">
+                            <connections>
+                                <action selector="EditPressed:" destination="BYZ-38-t0r" id="5z3-ee-dgK"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xhE-DJ-8Y9">
                             <connections>
                                 <action selector="AddNewToDoPressed:" destination="BYZ-38-t0r" id="JXQ-BB-5CR"/>
@@ -67,6 +72,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="ToDosTableView" destination="5JH-7Q-bTH" id="HOA-wp-vXf"/>
+                        <outlet property="addbtn" destination="xhE-DJ-8Y9" id="1nz-gm-fQu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
